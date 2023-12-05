@@ -4,23 +4,16 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="testRunner" value="GRADLE" />
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$USER_HOME$/.gradle/wrapper/dists/gradle-6.7.1-bin/bwlcbys1h7rz3272sye1xwiv6/gradle-6.7.1" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/componse-demo" />
-            <option value="$PROJECT_DIR$/fbe-cache" />
-            <option value="$PROJECT_DIR$/fbe-core" />
-            <option value="$PROJECT_DIR$/fbe-http" />
-            <option value="$PROJECT_DIR$/fbe-share" />
-            <option value="$PROJECT_DIR$/fbe-ui" />
-            <option value="$PROJECT_DIR$/fbe-utils" />
           </set>
         </option>
+        <option name="resolveExternalAnnotations" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

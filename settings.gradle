@@ -12,12 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "FBEAndroid"
+rootProject.name = "appN"
 include ':app'
-include ':fbe-core'
-include ':fbe-http'
-include ':fbe-cache'
-include ':fbe-ui'
-include ':fbe-share'
-include ':fbe-utils'
-include ':componse-demo'
