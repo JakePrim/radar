@@ -81,6 +81,12 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 
 App版本和SDK版本的管理方式：推荐使用plugin进行管理，存放在`build-logic`下
 
+- convention : 公约插件：feature模块gradle公约、core模块gradle公约、应用程序模块gradle公约
+
+```
+
+```
+
 
 开发类文件的划分建议方式：
 

@@ -25,9 +25,10 @@ ksp = "1.9.10-1.0.13"
 protobufPlugin = "0.9.4"
 androidxLifecycle = "2.6.2"
 androidxCoreSplashscreen = "1.0.1"
-androidTools = "31.1.3"
-
-
+androidTools = "31.2.0"
+androidDesugarJdkLibs = "2.0.3"
+kotlinxSerializationJson = "1.6.0"
+kotlinxDatetime = "0.4.1"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -38,6 +39,7 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
+android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 # glide 图片库
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
@@ -54,6 +56,8 @@ okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor",
 protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf" }
 protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf" }
 retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxSerializationJson" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDatetime" }
 
 # 权限检查
 xxpermissions = { group = "com.github.getActivity", name = "XXPermissions", version.ref = "xxpermissions" }
@@ -80,8 +84,6 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 
 
-
-
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
@@ -92,4 +94,8 @@ protobuf = { id = "com.google.protobuf", version.ref = "protobufPlugin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+# Plugins defined by this project
+appn-android-core = { id = "appn.android.core", version = "unspecified" }
+appn-android-feature = { id = "appn.android.feature", version = "unspecified" }
 

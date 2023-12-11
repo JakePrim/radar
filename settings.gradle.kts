@@ -24,3 +24,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "appN"
 include(":app")
+include(":core:core-base")
+include(":core:core-common")
+include(":core:core-utils")
+include(":core:core-network")
+include(":core:core-ui")
+include(":core:core-router")
+include(":feature:feature-base")

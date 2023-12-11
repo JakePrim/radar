@@ -9,14 +9,21 @@ import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.provideDelegate
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+val compileSdkVersion = 31
+
+val minSdkVersion = 21
+
+val targetVersion = 31
+
 internal fun Project.configureKotlinAndroid(
     commonExtension: CommonExtension<*, *, *, *, *>,
 ) {
     commonExtension.apply {
-        compileSdk = 31
+        compileSdk = compileSdkVersion
 
         defaultConfig {
-            minSdk = 21
+            minSdk = minSdkVersion
         }
 
         compileOptions {
@@ -26,16 +33,12 @@ internal fun Project.configureKotlinAndroid(
             targetCompatibility = JavaVersion.VERSION_11
             isCoreLibraryDesugaringEnabled = true
         }
-
-        buildTypes {
-        }
-
     }
 
     configureKotlin()
 
     dependencies {
-//        add("coreLibraryDesugaring", libs.findLibrary("android.desugarJdkLibs").get())
+        add("coreLibraryDesugaring", libs.findLibrary("android.desugarJdkLibs").get())
     }
 }
 

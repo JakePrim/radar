@@ -29,3 +29,16 @@ tasks {
         failOnWarning = true
     }
 }
+
+gradlePlugin {
+    plugins {
+        register("androidCore") {
+            id = "appn.android.core"
+            implementationClass = "AndroidCoreConventionPlugin"
+        }
+        register("androidFeature") {
+            id = "appn.android.feature"
+            implementationClass = "AndroidFeatureConventionPlugin"
+        }
+    }
+}
