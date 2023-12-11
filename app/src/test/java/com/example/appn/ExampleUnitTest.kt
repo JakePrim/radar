@@ -1,4 +1,4 @@
-package com.abstergo.android
+package com.example.appn
 
 import org.junit.Test
 
