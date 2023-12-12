@@ -18,7 +18,7 @@ appN 框架目录划分：
 | 模块名                              | 职责                      | 备注                                                |
 |----------------------------------|-------------------------|---------------------------------------------------|
 | **app**                          | 应用程序模块                  | 将所有feature(功能)模块整合在一起，并初始化feature模块               |
-| **feature-service**              | 提供所有feature模块的公共服务接口依赖库 | feature模块公共的特性：bean和路由、数据请求等设置                    |
+| **feature-base**                 | 提供所有feature模块的公共服务接口依赖库 | feature模块公共的特性：bean和路由、数据请求等设置                    |
 | **feature-1**, **feature-2** ... | 功能特定的模块，遵循单一职责原则        |                                                   |
 | **core-base**                    | core模块的基础公共库            | core-base 主要用于提供接口，主要用来采集和测试core模块的操作             |
 | **core-common**                  | 通用模块                    | 用来封装基础的Activity/Fragment等操作                       |
@@ -62,7 +62,7 @@ appN 框架目录划分：
 ```
 
 feature
-模块根据使用情况进行依赖core模块，业务feature必须的依赖路径：`feature-模块` -> `feature-service`
+模块根据使用情况进行依赖core模块，业务feature必须的依赖路径：`feature-模块` -> `feature-base`
 
 第三方库管理方式：`gradle/libs.versions.toml` Google 官方推荐的管理方式，可以在模块下点击跳转，和Rust的第三包管理方式类似，非常好用。
 如下代码 声明版本、libraries是引入的第三方库、plugins是引入的gradle插件
@@ -79,7 +79,7 @@ core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 ```
 
-App版本和SDK版本的管理方式：推荐使用plugin进行管理，存放在`build-logic`下
+gradle统一的管理方式：推荐使用plugin进行管理，存放在`build-logic`下
 
 - convention 定义公约插件：feature模块gradle公约、core模块gradle公约、应用程序模块gradle公约
 
