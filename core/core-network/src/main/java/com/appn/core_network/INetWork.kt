@@ -61,6 +61,11 @@ interface INetWork {
     fun registerThrowableResolver(factory: ThrowableResolver.Factory<*>): INetWork
 
     /**
+     * 定义业务成功的code
+     */
+    fun setSuccessCode(code: Int): INetWork
+
+    /**
      * 构建网络请求-在application中设置
      */
     fun build(context: Context)

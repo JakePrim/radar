@@ -12,12 +12,16 @@ android {
 }
 
 dependencies {
-    implementation(":core:core-base")
+//    implementation(":core:core-base")
     implementation(libs.kotlinx.coroutines.android)
-    implementation(libs.kotlinx.datetime)
     api(libs.kotlinx.serialization.json)
     api(libs.retrofit)
     implementation(libs.okhttp.logging)
     implementation(libs.retrofit.kotlin.serialization)
-    implementation(libs.gson)
+    api(libs.gson)
+
+    //测试相关
+    implementation(libs.androidx.test.core)
+    implementation(libs.androidx.test.rules)
+    implementation(libs.androidx.test.runner)
 }

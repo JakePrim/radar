@@ -40,5 +40,9 @@ gradlePlugin {
             id = "appn.android.feature"
             implementationClass = "AndroidFeatureConventionPlugin"
         }
+        register("androidApplication") {
+            id = "appn.android.application"
+            implementationClass = "AndroidApplicationConventionPlugin"
+        }
     }
 }

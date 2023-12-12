@@ -1,6 +1,7 @@
 package com.appn.core_network
 
 import android.content.Context
+import android.util.Log
 import com.appn.core_network.adapter.IAdapterHandler
 import com.appn.core_network.converter.NullOnEmptyConverterFactory
 import com.appn.core_network.converter.ResponseTransformer
@@ -8,6 +9,7 @@ import com.appn.core_network.converter.TransformConverterFactory
 import com.appn.core_network.exception.DefaultExceptionHandler
 import com.appn.core_network.exception.FactoryRegistry
 import com.appn.core_network.exception.IExceptionHandler
+import com.appn.core_network.progress.ProgressManager
 import com.appn.core_network.result.DefaultThrowableResolverFactory
 import com.appn.core_network.ssl.SSLContextUtil
 import com.dayunauto.lib_api.network.exception.ThrowableResolver
@@ -17,6 +19,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
 import java.lang.reflect.Method
@@ -37,9 +40,12 @@ class NetWorkManager : INetWork {
     lateinit var mContext: Context
     private lateinit var baseUrl: String
     private var exceptionHandlers: IExceptionHandler? = null
-    private lateinit var adapterHandler: IAdapterHandler
+    private var adapterHandler: IAdapterHandler? = null
     private lateinit var okHttpClient: OkHttpClient
-    private var okHttpBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
+    private var okHttpBuilder: OkHttpClient.Builder =
+        ProgressManager.getInstance().with(OkHttpClient.Builder())
+
+    private var mSuccessCode = 20000
 
     companion object {
         private const val DEFAULT_CONNECT_TIMEOUT = 30
@@ -103,7 +109,7 @@ class NetWorkManager : INetWork {
         return exceptionHandlers
     }
 
-    override fun getAdapterHandler(): IAdapterHandler {
+    override fun getAdapterHandler(): IAdapterHandler? {
         return adapterHandler
     }
 
@@ -117,6 +123,15 @@ class NetWorkManager : INetWork {
         return this
     }
 
+    override fun setSuccessCode(code: Int): INetWork {
+        this.mSuccessCode = code
+        return this
+    }
+
+    fun getSuccessCode(): Int {
+        return mSuccessCode
+    }
+
 
     @OptIn(ExperimentalSerializationApi::class)
     override fun build(context: Context) {
@@ -124,14 +139,18 @@ class NetWorkManager : INetWork {
         val contentType = "application/json".toMediaType()
         //Json 解析器配置
         val jsonDecoder = Json {
-            ignoreUnknownKeys = true
+            ignoreUnknownKeys = true //JSON和数据模型字段可以不匹配
             //当数据类字段为可空, 则赋值为null. 要求explicitNulls = false
-            explicitNulls = false
+            explicitNulls = true //如果JSON字段是Null则使用默认值
         }
         if (exceptionHandlers == null) {
             this.exceptionHandlers = DefaultExceptionHandler()
         }
-
+        if (BuildConfig.LOG_DEBUG) {
+            okHttpBuilder.addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
+        }
         this.okHttpClient = okHttpBuilder.build()
         FactoryRegistry.registerThrowableResolver(DefaultThrowableResolverFactory())
         retrofit = Retrofit.Builder()
@@ -197,6 +216,7 @@ class NetWorkManager : INetWork {
             }.onFailure {
                 // when it's failure, resume a wrapper success which contain
                 // failure, so we don't need to add try catch
+                Log.d("TAG", "resumeWith: ${it.message}")
                 //将错误伪装成，成功的状态
                 val fakeSuccessResult = resolver.resolve(it)
                 original.resumeWith(Result.success(fakeSuccessResult))

@@ -10,11 +10,11 @@ import org.gradle.kotlin.dsl.provideDelegate
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val compileSdkVersion = 31
+const val compileSdkVersion = 33
 
-val minSdkVersion = 21
+const val minSdkVersion = 21
 
-val targetVersion = 31
+const val targetVersion = 33
 
 internal fun Project.configureKotlinAndroid(
     commonExtension: CommonExtension<*, *, *, *, *>,
@@ -32,6 +32,10 @@ internal fun Project.configureKotlinAndroid(
             sourceCompatibility = JavaVersion.VERSION_11
             targetCompatibility = JavaVersion.VERSION_11
             isCoreLibraryDesugaringEnabled = true
+        }
+
+        buildFeatures {
+            buildConfig = true
         }
     }
 

@@ -42,7 +42,7 @@ inline fun <T, F, R : APIResult<T, F>> R.onFailure(
         if (handle) {
             exceptionHandler?.let {
                 NetWorkManager.instance.getAdapterHandler()
-                    .handlerException(it, ResponseThrowable(code, message))
+                    ?.handlerException(it, ResponseThrowable(code, message))
             }
         }
     }
@@ -75,7 +75,7 @@ inline fun <IT, IF, IR : APIResult<IT, IF>, OT, OF, OR : APIResult<OT, OF>> IR.o
         if (handle) {
             exceptionHandler?.let {
                 NetWorkManager.instance.getAdapterHandler()
-                    .handlerException(it, ResponseThrowable(code, message))
+                    ?.handlerException(it, ResponseThrowable(code, message))
             }
         }
     }

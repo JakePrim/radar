@@ -1,14 +1,14 @@
 [versions]
 agp = "8.2.0"
 kotlin = "1.9.10"
-core-ktx = "1.10.1"
+core-ktx = "1.10.0"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
 appcompat = "1.6.1"
 material = "1.9.0"
 constraintlayout = "2.1.4"
-okhttp = "4.11.0"
+okhttp = "4.12.0"
 glide = "4.16.0"
 retrofit = "2.9.0"
 refresh_layout = "2.1.0"
@@ -29,18 +29,32 @@ androidTools = "31.2.0"
 androidDesugarJdkLibs = "2.0.3"
 kotlinxSerializationJson = "1.6.0"
 kotlinxDatetime = "0.4.1"
+androidxTestCore = "1.5.0"
+androidxTestExt = "1.1.5"
+androidxTestRules = "1.5.0"
+androidxTestRunner = "1.5.2"
+androidxTracing = "1.1.0"
+androidxUiAutomator = "2.2.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
+
+# 测试相关
+androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidxTestCore" }
+androidx-test-ext = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "androidxTestExt" }
+androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidxTestRules" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTestRunner" }
+androidx-test-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "androidxUiAutomator" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+
 # glide 图片库
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
@@ -98,4 +112,5 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 # Plugins defined by this project
 appn-android-core = { id = "appn.android.core", version = "unspecified" }
 appn-android-feature = { id = "appn.android.feature", version = "unspecified" }
+appn-android-application = { id = "appn.android.application", version = "unspecified" }
 
