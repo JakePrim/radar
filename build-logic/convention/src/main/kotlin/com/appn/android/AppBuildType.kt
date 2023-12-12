@@ -18,6 +18,8 @@ const val devH5BaseUrl = ""
 const val debugH5BaseUrl = ""
 const val releaseH5BaseUrl = ""
 
+const val APPLICATION_ID = ""
+
 internal fun Project.configureBuildType(extension: LibraryExtension) {
     extension.apply {
         buildTypes {
@@ -93,4 +95,5 @@ private fun BuildType.customFiled(log: Boolean, baseUrl: String, baseH5Url: Stri
     buildConfigField("boolean", "LOG_DEBUG", "$log")
     buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
     buildConfigField("String", "BASE_H5_URL", "\"$baseH5Url\"")
+    buildConfigField("String", "APPLICATION_ID", "\"$APPLICATION_ID\"")
 }
