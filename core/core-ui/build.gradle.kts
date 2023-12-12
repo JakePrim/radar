@@ -11,6 +11,5 @@ android {
 }
 
 dependencies {
-    implementation(":core:core-base")
     implementation(libs.kotlinx.coroutines.android)
 }

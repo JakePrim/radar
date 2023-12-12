@@ -12,7 +12,6 @@ android {
 }
 
 dependencies {
-    implementation(":core:core-base")
     implementation(libs.material)
     implementation(libs.kotlinx.coroutines.android)
 }
