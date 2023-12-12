@@ -41,6 +41,7 @@ class ExampleInstrumentedTest {
         /// 测试网络框架的使用
         NetWorkManager.instance.baseUrl("https://www.wanandroid.com/")
             .registerResponseTransformer(WanAndroidResponseTransformerFactory())
+
             .setSuccessCode(0)
             .build(appContext)
         val service = NetWorkManager.instance.create(WanAndroidService::class.java)
