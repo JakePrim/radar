@@ -22,11 +22,11 @@ appN 框架目录划分：
 | **app**                                                      | 应用程序模块                            | 将所有feature(功能)模块整合在一起，并初始化feature模块       |
 | **feature-base**                                             | 提供所有feature模块的公共服务接口依赖库 | feature模块公共的特性：bean和路由、数据请求等设置            |
 | **feature-1**, **feature-2** ...                             | 功能特定的模块，遵循单一职责原则        |                                                              |
-| **core-base**                                                | core模块的基础公共库                    | core-base 主要用于提供接口，主要用来采集和测试core模块的操作 |
-| **core-common**                                              | 通用模块                                | 用来封装基础的Activity/Fragment等操作                        |
+| **[core-base](http://172.28.24.128/appn/appbase/-/tree/master/core/core-base)** | core模块的基础公共库                    | core-base 主要用于提供接口，主要用来采集和测试core模块的操作 |
+| **[core-common](http://172.28.24.128/appn/appbase/-/tree/master/core/core-common)** | 通用模块                                | 用来封装基础的Activity/Fragment等操作                        |
 | **[core-network](http://172.28.24.128/appn/appbase/-/tree/master/core/core-network)** | 网络模块                                | 底层Retrofit+协程的网络请求封装：统一异常处理、返回结果统一处理 |
 | **core-cache**                                               | 缓存模块                                | 处理本地缓存、Room数据库、SP/MMVK等缓存                      |
-| **core-ui**                                                  | UI模块                                  | UI库，包括常用的UI和自定义View、弹窗、屏幕适配等处理         |
+| **[core-ui](http://172.28.24.128/appn/appbase/-/tree/master/core/core-ui)** | UI模块                                  | UI库，包括常用的UI和自定义View、弹窗、屏幕适配等处理         |
 | **core-theme**                                               | 主题切换、换肤等                        |                                                              |
 | **core-share**                                               | 分享模块                                | 用来处理第三方分享：微信、QQ                                 |
 | **core-web**                                                 | webview模块                             | WebView的封装处理,简化WebView的操作，支持多进程、复用池等功能 |
@@ -36,10 +36,10 @@ appN 框架目录划分：
 | **core-permission**                                          | 权限管理模块                            | 用于权限的统一管理以及权限的弹窗提示等功能                   |
 | **core-image**                                               | 图片模块                                | 用于图片的加载、大图展示缩放等功能实现                       |
 | **core-encipher**                                            | 加密模块                                | AES Base64 加密                                              |
-| **core-router**                                              | 路由模块                                | 用来路由导航等                                               |
+| **[core-router](http://172.28.24.128/appn/appbase/-/tree/master/core/core-router)** | 路由模块                                | 用来路由导航等                                               |
 | **core-mqtt**                                                | MQTT                                    | 封装mqtt的功能通用代码                                       |
 | **core-push**                                                | 推送                                    | 看能否统一推送功能，对外提供统一接口，实现不同的第三方推送功能 |
-| **core-resource**                                            | 资源模块                                | 图片、shape、string、color等                                 |
+| **[core-utils](http://172.28.24.128/appn/appbase/-/tree/master/core/core-utils)** | 工具模块                                | 封装各种工具类：时间、校验、设备ID等等                       |
 | **LocalRepo**                                                | 存放AAR                                 |                                                              |
 | **build-logic**                                              | gradle plugin                           | 常用的gradle 公约插件:application/lib/module等 统一gralde配置 |
 | **test**                                                     | 单元测试模块                            | 用于常见的测试和自测工作                                     |
