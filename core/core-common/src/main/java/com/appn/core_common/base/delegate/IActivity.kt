@@ -25,4 +25,9 @@ interface IActivity {
     fun useFragment(): Boolean
 
     fun useEvent(): Boolean
+
+    /**
+     * 字体大小是否跟随系统大小变化,默认为false不跟随系统字体大小变换
+     */
+    fun useFontScale(): Boolean
 }

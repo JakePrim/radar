@@ -1,5 +1,6 @@
 package com.appn.core_common.base
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.appn.core_common.base.delegate.IActivity
@@ -12,6 +13,10 @@ abstract class BaseActivity : AppCompatActivity(), IActivity {
         val TAG = this::class.java.simpleName
     }
 
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(if (useFontScale()) newBase else getConfigurationContext(newBase))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initContentView(savedInstanceState)
@@ -20,6 +25,10 @@ abstract class BaseActivity : AppCompatActivity(), IActivity {
     }
 
     override fun useFragment(): Boolean {
+        return false
+    }
+
+    override fun useFontScale(): Boolean {
         return false
     }
 
@@ -36,5 +45,11 @@ abstract class BaseActivity : AppCompatActivity(), IActivity {
 
     override fun onDestroy() {
         super.onDestroy()
+    }
+
+    private fun getConfigurationContext(context: Context): Context? {
+        val configuration = context.resources.configuration
+        configuration.fontScale = 1f
+        return context.createConfigurationContext(configuration)
     }
 }
