@@ -3,15 +3,12 @@ plugins {
 }
 
 android {
-    namespace = "com.appn.feature-base"
+    namespace = "com.appn.feature_base"
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
-    dataBinding { enable = true }
 }
 
 dependencies {
-    implementation(libs.material)
-    implementation(libs.kotlinx.coroutines.android)
 }

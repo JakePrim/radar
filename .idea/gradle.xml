@@ -27,6 +27,7 @@
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/core-base" />
             <option value="$PROJECT_DIR$/core/core-common" />
+            <option value="$PROJECT_DIR$/core/core-image" />
             <option value="$PROJECT_DIR$/core/core-network" />
             <option value="$PROJECT_DIR$/core/core-router" />
             <option value="$PROJECT_DIR$/core/core-ui" />

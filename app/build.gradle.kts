@@ -26,4 +26,5 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation(project(":core:core-network"))
+    implementation(project(":feature:feature-base"))
 }

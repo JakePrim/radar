@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.appn.core_utils"
+    namespace = "com.appn.core_image"
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -12,5 +12,8 @@ android {
 
 dependencies {
     implementation(project(":core:core-base"))
-    implementation(libs.kotlinx.datetime)
+    //测试相关
+    implementation(libs.androidx.test.core)
+    implementation(libs.androidx.test.rules)
+    implementation(libs.androidx.test.runner)
 }

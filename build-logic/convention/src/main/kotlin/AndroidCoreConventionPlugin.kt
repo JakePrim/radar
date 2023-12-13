@@ -25,13 +25,19 @@ class AndroidCoreConventionPlugin : Plugin<Project> {
             }
             //引入通用的配置
             extensions.configure<LibraryExtension> {
+                //基础配置
                 configureKotlinAndroid(this)
                 defaultConfig.targetSdk = targetVersion
                 defaultConfig.multiDexEnabled = true
                 defaultConfig {
                     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
                 }
+                //设置BuildType
                 configureBuildType(this)
+                //开启dataBinding
+                dataBinding {
+                    enable = true
+                }
             }
 
             extensions.configure<LibraryAndroidComponentsExtension> {
