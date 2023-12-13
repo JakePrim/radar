@@ -14,4 +14,5 @@ dependencies {
     implementation(project(":core:core-base"))
     implementation(libs.material)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.eventbus)
 }

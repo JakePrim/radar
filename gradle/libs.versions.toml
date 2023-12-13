@@ -1,5 +1,5 @@
 [versions]
-agp = "8.2.0"
+agp = "8.1.3"
 kotlin = "1.9.10"
 core-ktx = "1.10.0"
 junit = "4.13.2"
@@ -35,6 +35,7 @@ androidxTestRules = "1.5.0"
 androidxTestRunner = "1.5.2"
 androidxTracing = "1.1.0"
 androidxUiAutomator = "2.2.0"
+eventbus = "3.3.1"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -44,7 +45,7 @@ constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayo
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
-
+eventbus = { group = "org.greenrobot", name = "eventbus-java", version.ref = "eventbus" }
 # 测试相关
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidxTestCore" }
 androidx-test-ext = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "androidxTestExt" }

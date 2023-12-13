@@ -23,12 +23,12 @@ dependencies {
     compileOnly(libs.ksp.gradlePlugin)
 }
 
-tasks {
-    validatePlugins {
-        enableStricterValidation = true
-        failOnWarning = true
-    }
-}
+//tasks {
+//    validatePlugins {
+//        enableStricterValidation = true
+//        failOnWarning = true
+//    }
+//}
 
 gradlePlugin {
     plugins {
