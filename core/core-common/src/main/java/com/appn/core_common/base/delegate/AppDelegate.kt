@@ -1,16 +1,12 @@
 package com.appn.core_common.base.delegate
 
-import android.app.Activity
 import android.app.Application
 import android.app.Application.ActivityLifecycleCallbacks
 import android.content.ComponentCallbacks2
 import android.content.Context
 import android.content.res.Configuration
-import android.os.Bundle
-import android.os.Process
-import java.io.BufferedReader
-import java.io.File
-import java.io.FileReader
+import com.appn.core_common.integration.ActivityLifecycle
+import com.appn.core_common.integration.AppManager
 
 
 /**
@@ -20,51 +16,32 @@ import java.io.FileReader
  * (Application一定要实现APP接口),框架就能照常运行
  */
 class AppDelegate(private val context: Context) : AppLifecycles {
-    private val classInitList: ArrayList<Class<out ConfigModule>> = ArrayList()
-    private val appInitList: ArrayList<ConfigModule> = ArrayList()
+    private val mModuleClassList: ArrayList<Class<out ConfigModule>> = ArrayList()
     private var mAppLifecycles: ArrayList<AppLifecycles> = ArrayList()
     private var mActivityLifecycles: ArrayList<ActivityLifecycleCallbacks> = ArrayList()
     private var mApplication: Application? = null
-    protected var mActivityLifecycle: ActivityLifecycleCallbacks? =
-        object : ActivityLifecycleCallbacks {
-            override fun onActivityCreated(p0: Activity, p1: Bundle?) {
-            }
-
-            override fun onActivityStarted(p0: Activity) {
-            }
-
-            override fun onActivityResumed(p0: Activity) {
-            }
-
-            override fun onActivityPaused(p0: Activity) {
-            }
-
-            override fun onActivityStopped(p0: Activity) {
-            }
-
-            override fun onActivitySaveInstanceState(p0: Activity, p1: Bundle) {
-            }
-
-            override fun onActivityDestroyed(p0: Activity) {
-            }
-
-        }
+    protected var mActivityLifecycle = ActivityLifecycle()
 
     //更细粒度的判断App所处的状态
     private var mComponentCallback: ComponentCallbacks2? = null
 
     fun registerAppLifecycles(classInit: Class<out ConfigModule>) {
-        classInitList.add(classInit)
+        mModuleClassList.add(classInit)
+    }
+
+    companion object {
+        //外部可能会用到Modules，放到static中存储一下
+        val mModules: ArrayList<ConfigModule> = ArrayList()
     }
 
     init {
-        classInitList.forEach { clazz ->
+        mModuleClassList.forEach { clazz ->
             val configModule = clazz.newInstance() as ConfigModule
             //外部实现者 将Application的生命周期回调注入到mAppLifecycles集合中
             configModule.injectAppLifecycle(context, mAppLifecycles)
             //外部实现者，将Activity生命周期回调注入到mActivityLifecycles集合中
             configModule.injectActivityLifecycle(context, mActivityLifecycles)
-            appInitList.add(configModule)
+            mModules.add(configModule)
         }
     }
 
@@ -107,6 +84,8 @@ class AppDelegate(private val context: Context) : AppLifecycles {
         mAppLifecycles.forEach {
             it.onCreate(application)
         }
+        //初始化AppManager
+        AppManager.getAppManager().init(application)
     }
 
     override fun onTerminate(application: Application) {

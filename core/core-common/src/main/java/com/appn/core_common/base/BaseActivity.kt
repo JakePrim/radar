@@ -23,6 +23,13 @@ abstract class BaseActivity : AppCompatActivity(), IActivity {
         return false
     }
 
+    /**
+     * 是否使用EventBus，默认返回true，自动检测当前Activity是否用到了EventBus，并且自动注册
+     */
+    override fun useEvent(): Boolean {
+        return true
+    }
+
     override fun onResume() {
         super.onResume()
     }

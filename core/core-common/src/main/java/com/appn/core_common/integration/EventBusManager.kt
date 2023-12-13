@@ -50,6 +50,27 @@ class EventBusManager {
         EventBus.getDefault().post(event)
     }
 
+    /**
+     * 发送粘性事件
+     */
+    fun postSticky(event: Any) {
+        EventBus.getDefault().postSticky(event)
+    }
+
+    /**
+     * 注销粘性事件
+     */
+    fun <T> removeStickyEvent(eventType: Class<T>): T {
+        return EventBus.getDefault().removeStickyEvent(eventType)
+    }
+
+    /**
+     * 清除订阅者和事件缓存
+     */
+    fun clear() {
+        EventBus.clearCaches()
+    }
+
     private fun haveAnnotation(subscriber: Any): Boolean {
         var skipSuperClasses = false
         var clazz: Class<*>? = subscriber.javaClass

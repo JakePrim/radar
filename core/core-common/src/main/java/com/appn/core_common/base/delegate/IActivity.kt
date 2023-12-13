@@ -23,4 +23,6 @@ interface IActivity {
      * Activity是否使用了Fragment，会更具这个属性判断是否注册 [FragmentManager.FragmentLifecycleCallbacks]
      */
     fun useFragment(): Boolean
+
+    fun useEvent(): Boolean
 }
