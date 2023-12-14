@@ -1,3 +1,4 @@
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.appn.android.core)
 }
@@ -15,4 +16,5 @@ dependencies {
     implementation(libs.material)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.eventbus)
+    implementation(libs.ultimateBarX)
 }

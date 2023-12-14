@@ -89,9 +89,7 @@ class AppDelegate(private val context: Context) : AppLifecycles {
     }
 
     override fun onTerminate(application: Application) {
-        if (mActivityLifecycle != null) {
-            mApplication?.unregisterActivityLifecycleCallbacks(mActivityLifecycle)
-        }
+        mApplication?.unregisterActivityLifecycleCallbacks(mActivityLifecycle)
         if (mActivityLifecycles.isNotEmpty()) {
             mActivityLifecycles.forEach {
                 mApplication?.unregisterActivityLifecycleCallbacks(it)

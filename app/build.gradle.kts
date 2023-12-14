@@ -1,3 +1,4 @@
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.appn.android.application)
     id("kotlinx-serialization")
@@ -26,5 +27,6 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation(project(":core:core-network"))
+    implementation(project(":core:core-common"))
     implementation(project(":feature:feature-base"))
 }

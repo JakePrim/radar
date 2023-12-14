@@ -3,6 +3,7 @@ package com.appn.core_common.integration
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import com.appn.core_common.base.delegate.ActivityDelegate
@@ -48,6 +49,7 @@ class ActivityLifecycle : Application.ActivityLifecycleCallbacks {
     private fun fetchActivityDelegate(activity: Activity): ActivityDelegate? {
         var activityDelegate: ActivityDelegate? = null
         if (activity is IActivity) {
+            //包名+类名 作为key
             activityDelegate = cacheActivityDelegate[activity.javaClass.name]
             if (activityDelegate == null) {
                 activityDelegate = ActivityDelegateImpl(activity)

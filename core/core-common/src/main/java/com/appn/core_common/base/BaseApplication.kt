@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.res.Configuration
 import com.appn.core_common.base.delegate.AppDelegate
 
-class BaseApplication : Application() {
+abstract class BaseApplication : Application() {
     private var mAppDelegate: AppDelegate? = null
 
     override fun attachBaseContext(base: Context) {

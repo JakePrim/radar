@@ -3,6 +3,7 @@ package com.example.appn
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.appn.core_common.base.BaseActivity
 import com.appn.core_network.NetWorkManager
 import com.appn.core_network.converter.ResponseTransformer
 import com.appn.core_network.result.BaseResult
@@ -24,9 +25,19 @@ import java.io.InputStream
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+
+    override fun initView(savedInstanceState: Bundle?) {
+
+    }
+
+    override fun initData(savedInstanceState: Bundle?) {
+    }
+
+    override fun initContentView(savedInstanceState: Bundle?) {
     }
 }
